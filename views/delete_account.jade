@@ -1,0 +1,32 @@
+doctype html
+html(lang='en-US')
+  head
+    meta(charset='UTF-8')
+    title HideIn - Delete Account
+    link(rel='stylesheet', href='stylesheets/style.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    link(rel='stylesheet', href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
+    script(src='/objects.js')
+    script(type='text/javascript').
+      var check_pwd = function() {
+      var pwd = document.getElementById('currentPassword');
+      if (pwd.length != 0) {
+      document.getElementById('delete_account').disabled = false;
+      } else {
+      document.getElementById('delete_account').disabled = true;
+      }
+      }
+  body
+    .top
+      h1(style='color: white; text-align: center;') HideIn
+    .left
+    .main
+      form(action='delete-account-password', method='post')
+        fieldset
+          legend HideIn Delete Account Screen
+          p
+            label Current Password:
+            input#currentPassword(name='currentPassword', type='password', placeholder='Current Password', onkeyup='check_pwd();', required='')
+          p
+            input#delete_account(type='submit', value='Delete Account', disabled='')

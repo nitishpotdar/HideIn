@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<link rel="stylesheet" href="stylesheets/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/start/jquery-ui.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="/objects.js"></script>
+<meta charset="UTF-8">
+<title>Customer Menu</title>
+<script type="text/javascript">
+      var submit_find_apartment_listings = function() {
+      document.getElementById("apartmentListings").submit();
+      }
+    </script>
+<script type="text/javascript">
+      var submit_find_room_listings = function() {
+      document.getElementById("roomListings").submit();
+      }
+    </script>
+<script type="text/javascript">
+      var submit_find_roommate_listings = function() {
+      document.getElementById("roommateListings").submit();
+      }
+    </script>
+<script type="text/javascript">
+      var submit_find_tenant_listings = function() {
+      document.getElementById("tenantListings").submit();
+      }
+    </script>
+<script type="text/javascript">
+      var submit_find_sublet_listings = function() {
+      document.getElementById("subletListings").submit();
+      }
+    </script>
+<script type="text/javascript">
+      var submit_posting_advertisement = function() {
+      document.getElementById("postingAdvertisement").submit();
+      }
+    </script>
+</head>
+<body>
+	<div class="top">
+		<h1 style="color: white; text-align: center;">HideIn</h1>
+	</div>
+	<div class="left">
+		<form method="post" action="change_password">
+			<div>
+				<input type="submit" value="Change Password">
+			</div>
+		</form>
+		<form method="post" action="delete_account">
+			<div>
+				<input type="submit" value="Delete Account">
+			</div>
+		</form>
+		<form method="post" action="logout">
+			<div>
+				<input type="submit" value="Logout">
+			</div>
+		</form>
+	</div>
+	<div class="main">
+		<div id="tabs">
+			<ul>
+				<li>
+					<form id="apartmentListings" method="post"
+						action="apartment_listings">
+						<a onclick="submit_find_apartment_listings();">Apartment</a>
+					</form>
+				</li>
+				<li>
+					<form id="roomListings" method="post" action="room_listings">
+						<a onclick="submit_find_room_listings();">Room</a>
+					</form>
+				</li>
+				<li>
+					<form id="roommateListings" method="post"
+						action="roommate_listings">
+						<a onclick="submit_find_roommate_listings();">Roommate</a>
+					</form>
+				</li>
+				<li>
+					<form id="tenantListings" method="post" action="tenant_listings">
+						<a onclick="submit_find_tenant_listings();">Tenant</a>
+					</form>
+				</li>
+				<li>
+					<form id="subletListings" method="post" action="sublet_listings">
+						<a onclick="submit_find_sublet_listings();">Sublet</a>
+					</form>
+				</li>
+				<!-- <li><a href="/links/postad.html">Post Ad</a></li> -->
+				<li>
+					<form id="postingAdvertisement" method="post"
+						action="posting_advertisement">
+						<a onclick="submit_posting_advertisement();">PostAd</a>
+					</form>
+				</li>
+			</ul>
+		</div>
+		<h4 id="message"></h4>
+	</div>
+</body>
+</html>

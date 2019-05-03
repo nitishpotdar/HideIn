@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HideIn</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+<script src="/jquery.min.js"></script>
+<script src="/skel.min.js"></script>
+<script src="/skel-layers.min.js"></script>
+<script src="/init.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="stylesheets/skel.css" />
+<link rel="stylesheet" href="stylesheets/style.css" />
+<link rel="stylesheet" href="stylesheets/style-xlarge.css" />
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /> -->
+<link rel="stylesheet"
+	href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+   <script type="text/javascript">
+
+        var check_pwd = function() {
+            if (document.getElementById('confirm_new_password').value ==
+                document.getElementById('new_password').value) {
+                document.getElementById('message_cnf_pwd').style.color = 'green';
+                document.getElementById('message_cnf_pwd').innerHTML = 'matching';
+                document.getElementById('confirm_change_pwd').disabled = false;
+
+            } else {
+                document.getElementById('message_cnf_pwd').style.color = 'red';
+                document.getElementById('message_cnf_pwd').innerHTML = 'not matching';
+                document.getElementById('confirm_change_pwd').disabled = true;
+            }
+        }
+        var check_cnf_pwd = function() {
+            if (document.getElementById('confirm_new_password').value ==
+                document.getElementById('new_password').value) {
+                document.getElementById('message_cnf_pwd').style.color = 'green';
+                document.getElementById('message_cnf_pwd').innerHTML = 'matching';
+                document.getElementById('confirm_change_pwd').disabled = false;
+
+            } else {
+                document.getElementById('message_cnf_pwd').style.color = 'red';
+                document.getElementById('message_cnf_pwd').innerHTML = 'not matching';
+                document.getElementById('confirm_change_pwd').disabled = true;
+            }
+        }
+    </script>
+
+
+</head>
+<style>
+.dropbtn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px;
+	font-size: 16px;
+	border: none;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 200px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 0;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #ddd
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: #3e8e41;
+}
+
+
+</style>
+<body>
+
+	<!-- Header -->
+	<header id="header">
+		<h1>
+			<a href="/">HideIn</a>
+		</h1>
+		<nav id="nav">
+			<ul>
+
+				<li>
+					<div class="w3-container w3-center">
+						<!--button.w3-button.w3-block.w3-grey(onclick="document.getElementById('id01').style.display='block'") View Details-->
+						<!--button.w3-button.w3-block.w3-grey(onclick="document.getElementById('id01').style.display='block'") View Details-->
+						<li class="button special" style="padding-right: 0px;"
+							data-toggle="modal" data-target="#myModal">Reset Password</li>
+					</div>
+					<div id="myModal" role="dialog" class="modal fade">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" data-dismiss="modal" class="close">×</button>
+									<p>Change Password</p>
+								</div>
+								<div class="modal-body">
+									<form action="confirm-change-password" method="post">
+										<div>
+											<input
+												name="currentPassword" type="password"
+												placeholder="Current Password" required />
+										</div>
+										<br>
+										<div>
+											<input name="newPassword"
+												type="password" id="new_password" placeholder="New Password"
+												onkeyup="check_pwd();" required />
+										</div>
+										<br>
+										<div>
+											<input
+												name="confirmPassword" type="password"
+												id="confirm_new_password" placeholder="Confirm Password"
+												onkeyup="check_cnf_pwd();" required /> <span
+												id='message_cnf_pwd'></span>
+										</div>
+										<br>
+										<div>
+											<input type="submit" id="confirm_change_pwd"
+												value="Change Password" disabled />
+										</div>
+									</form>
+								</div>
+								<div class="modal-footer">
+									<button type="button" data-dismiss="modal"
+										class="btn btn-default">
+										Close<br />
+									</button>
+									<br />
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<div class="modal fade" id="myModal" role="dialog">
+					<div class="modal-dialog">
+
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Modal Header</h4>
+							</div>
+							<div class="modal-body">
+								<p>Some text in the modal.</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<li><a href="logout" class="button special">Log Out</a></li>
+			</ul>
+		</nav>
+
+	</header>
+
+	<section id="one" class="wrapper style1 special">
+		<div class="container-fluid">
+			<header class="major">
+				<h2>WELCOME TO HIDE IN !</h2>
+			</header>
+			<div class="row 150%">
+				<div class="4u 12u$(medium)">
+					<section class="box">
+						<i class="icon big rounded color1 fas fa-home"></i>
+						<h3>APARTMENTS</h3>
+						<p>Search for apartments based on location</p>
+						</br>
+						<div class="12u$">
+							<ul class="actions">
+								<li>
+									<form id="apartmentListings" method="post"
+										action="apartment_listings">
+										<input value="View Apartment Listing" class="special big"
+											type="submit" onclick="submit_find_apartment_listings();">
+									</form>
+								</li>
+							</ul>
+						</div>
+					</section>
+				</div>
+				<div class="4u 12u$(medium)">
+					<section class="box">
+						<i class="icon big rounded color9 fas fa-users"></i>
+						<h3>ROOMMATES</h3>
+						<p>Search for roommates based on location</p>
+						</br>
+						<div class="12u$">
+							<ul class="actions">
+								<li>
+									<form id="roommateListings" method="post"
+										action="roommate_listings">
+										<input value="View Roommates Listing" class="special big"
+											type="submit" onclick="submit_find_roommate_listings();">
+									</form>
+								</li>
+							</ul>
+						</div>
+					</section>
+				</div>
+				<div class="4u$ 12u$(medium)">
+					<section class="box">
+						<i class="icon big rounded color6 far fa-edit"></i>
+						<h3>POST AN AD</h3>
+						<p>Post an advertisement for apartment or roommate listing</p>
+						</br>
+						<div class="12u$">
+							<ul class="actions">
+								<li>
+									<form id="postingAdvertisement" method="post"
+										action="posting_advertisement">
+										<input value="Post An Ad" class="special big" type="submit"
+											onclick="submit_posting_advertisement();">
+									</form>
+								</li>
+							</ul>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="8u 12u$(medium)">
+					<ul class="copyright">
+						<li>&copy; Team Heisenbugs. All rights reserved.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

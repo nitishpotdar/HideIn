@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HideIn</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/jquery.min.js"></script>
+<script src="/skel.min.js"></script>
+<script src="/skel-layers.min.js"></script>
+<script src="/init.js"></script>
+<link rel="stylesheet" href="stylesheets/skel.css" />
+<link rel="stylesheet" href="stylesheets/style.css" />
+<link rel="stylesheet" href="stylesheets/style-xlarge.css" />
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /> -->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+</head>
+<style>
+.center1 {
+	padding: 0 0 0 350px;
+}
+
+.button {
+	background-color: #404449;
+	color: #ffffff;
+	border: none;
+	padding: 5px 5px;
+	font-size: 17px;
+	font-family: Raleway;
+	cursor: pointer;
+}
+
+</style>
+<body>
+
+	<!-- Header -->
+	<header id="header">
+		<h1>
+			<form action="/customer-menu" method="post">
+				<input type="submit" class="button" value="Menu" />
+			</form>
+		</h1>
+	</header>
+
+	<section id="one" class="wrapper style1 special">
+		<div class="container-fluid">
+			<header class="major">
+				<h2>Select listing type</h2>
+			</header>
+			<div class="row 120% center1">
+				<div class="4u 12u$(medium)">
+					<section class="box">
+						<i class="icon big rounded color1 fas fa-home"></i>
+						<h3>APARTMENTS</h3>
+						<div class="12u$">
+							<ul class="actions">
+								<li>
+									<form id="apartmentListings" action="get_apartment_ad">
+										<input value="Post Apartment Listing" class="special big"
+											type="submit" onclick="submit_post_apartment_listings();">
+									</form>
+								</li>
+							</ul>
+						</div>
+					</section>
+				</div>
+				<div class="4u 12u$(medium)">
+					<section class="box">
+						<i class="icon big rounded color9 fas fa-users"></i>
+						<h3>ROOMMATES</h3>
+						<div class="12u$">
+							<ul class="actions">
+								<li>
+									<form id="roommateListings" action="get_roommate_ad">
+										<input value="Post Roommates Listing" class="special big"
+											type="submit" onclick="submit_post_roommate_listings();">
+									</form>
+								</li>
+							</ul>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="8u 12u$(medium)">
+					<ul class="copyright">
+						<li>&copy; Team Heisenbugs. All rights reserved.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

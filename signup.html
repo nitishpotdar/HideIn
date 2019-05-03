@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<link rel="stylesheet" href="stylesheets/style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up form</title>
+    <script type="text/javascript">
+
+        var check_pwd = function() {
+            if (document.getElementById('password').value ==
+                 document.getElementById('confirm_password').value) {
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerHTML = 'matching';
+                document.getElementById('submit_button').disabled = false;
+
+            } else {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'not matching';
+                document.getElementById('submit_button').disabled = true;
+            }
+        }
+        var check_cnf_pwd = function() {
+            if (document.getElementById('password').value ==
+                document.getElementById('confirm_password').value) {
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerHTML = 'matching';
+                document.getElementById('submit_button').disabled = false;
+
+            } else {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'not matching';
+                document.getElementById('submit_button').disabled = true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+	<div class="top">
+        <h1 style="color: white; text-align: center;">HideIn</h1>
+    </div>
+    <div class="left">
+            <ul>
+                <!-- <li><a href="login">Login</a></li>
+                <li><a href="signup">Sign Up</a></li>
+                <li><a href="postad">Post Ad</a></li> -->
+            </ul>
+    </div>
+	<div class="main">
+    <form onsubmit="return alert('Thank you for signing up!');" action="signup"
+                    method="post">
+        <fieldset>
+        	<legend>HideIn Sign Up Screen</legend>
+            <p>
+                <label>First Name:</label>
+                <input name="firstName"
+                	   placeholder="First name" 
+                       type="text" required/>
+            </p>
+            <p>
+                <label>Last Name:</label>
+                <input name="lastName"
+                	   placeholder="Last name"  
+                	   type="text" required/>
+            </p>
+            <p>
+                <label>Email ID:</label>
+                <input name="emailId" 
+                	   placeholder = "xxxxx@xxxxx.xxx"
+                       pattern = "^.+@.+\..{2,4}$"
+                       type="email" required/>
+            </p>
+
+            <p>
+                <label>Password:</label>
+                <input type="password"
+                id = "password"
+                name = "password" 
+                onkeyup = 'check_pwd();' required/>
+            </p>
+            <p>
+                <label>Confirm Password:</label>
+                <input type="password"
+                id = "confirm_password"
+                name = "confirm_password" 
+                onkeyup = 'check_cnf_pwd();' required/>
+                <span id='message'></span>
+            </p>
+
+            <p>
+                <label>Phone Number:</label>
+                <input name="phoneNumber" 
+                       type="tel" 
+                	   placeholder = "999-999-9999"
+                	   pattern="^\d{3}-\d{3}-\d{4}$" required/>
+            </p>
+            <p>
+                <input type="submit" 
+                	   value="Submit" 
+                       id = "submit_button"
+                       disabled/>
+            </p>
+        </fieldset>
+    </form>
+    </div>
+</body>
+
+
+</html>

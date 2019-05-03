@@ -1,0 +1,121 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title HideIn - Post Advertisement
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    script(src='/jquery.min.js')
+    script(src='/skel.min.js')
+    script(src='/skel-layers.min.js')
+    script(src='/init.js')
+    link(rel='stylesheet', href='stylesheets/skel.css')
+    link(rel='stylesheet', href='stylesheets/style.css')
+    link(rel='stylesheet', href='stylesheets/style-xlarge.css')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    title HideIn - Sign Up
+    script(type='text/javascript').
+      var check_pwd = function() {
+      if (document.getElementById('password').value ==
+      document.getElementById('confirm_password').value) {
+      document.getElementById('message').style.color = 'green';
+      document.getElementById('message').innerHTML = 'matching';
+      document.getElementById('submit_button').disabled = false;
+      } else {
+      document.getElementById('message').style.color = 'red';
+      document.getElementById('message').innerHTML = 'not matching';
+      document.getElementById('submit_button').disabled = true;
+      }
+      }
+      var check_cnf_pwd = function() {
+      if (document.getElementById('password').value ==
+      document.getElementById('confirm_password').value) {
+      document.getElementById('message').style.color = 'green';
+      document.getElementById('message').innerHTML = 'matching';
+      document.getElementById('submit_button').disabled = false;
+      } else {
+      document.getElementById('message').style.color = 'red';
+      document.getElementById('message').innerHTML = 'not matching';
+      document.getElementById('submit_button').disabled = true;
+      }
+      }
+  body.landing
+    // Header
+    header#header
+      h1
+        a(href='/') HideIn
+      nav#nav
+        ul
+          li
+            a.button.special(href='/') Home
+          //li
+            //a.button.special(href='login') Login
+    // Banner
+    section#banner
+      h2 HideIn
+      center
+        form(action='customer-menu', method='post')
+          .form-group
+            label#textbox Available From
+            input#datepicker1(name='available_from', type='date', placeholder='mm/dd/yyyy', required='')
+          .form-group
+            label#textbox Available Till
+            input#datepicker2(name='available_till', type='date', placeholder='mm/dd/yyyy', required='')
+          .form-group
+            label#textbox Rent
+            input(name='rent', type='number', placeholder='Rent in USD', required='')
+          .form-group
+            label#textbox Location
+            input(name='location', type='text', required='')
+          .form-group
+            label#textbox Description (optional):
+            textarea(name='description', rows='3')
+            span#message
+          .form-group
+            label#textbox Select a type
+            .class='12u$'
+            .select-wrapper
+            select#category(name='category')
+            option(value='') - Category -
+            option(value='apartment') Apartment
+            option(value='roommate') Roommates
+          .form-group
+            .6u(class='12u$(3)')
+              input#copy(type='checkbox', name='parking')
+              label(for='copy') Parking
+            .6u(class='12u$(3)')
+              input#copy(type='checkbox', name='gym')
+              label(for='copy') Gym
+            .6u(class='12u$(3)')
+              input#copy(type='checkbox', name='swimmingpool')
+              label(for='copy') Swimming Pool
+            .6u(class='12u$(3)')
+              input#copy(type='checkbox', name='airconditioner')
+              label(for='copy') Air Conditioner
+            .6u(class='12u$(3)')
+              input#copy(type='checkbox', name='washerdryer')
+              label(for='copy') In-house washer-dryer
+          .form-group
+            input#submit_button(type='submit', value='Submit')
+    // Footer
+    footer#footer
+      .container
+        .row
+          .8u(class='12u$(medium)')
+            ul.copyright
+              li © Team Heisenbugs. All rights reserved.
+          .class='4u$ 12u$(medium)'
+            ul.icons
+              li
+                a.icon.rounded.fa-facebook
+                  span.label Facebook
+              li
+                a.icon.rounded.fa-twitter
+                  span.label Twitter
+              li
+                a.icon.rounded.fa-google-plus
+                  span.label Google+
+              li
+                a.icon.rounded.fa-linkedin
+                  span.label LinkedIn

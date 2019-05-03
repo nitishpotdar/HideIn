@@ -1,0 +1,211 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title HideIn
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    script(src='/jquery.min.js')
+    //script(src='/skel.min.js')
+    //script(src='/skel-layers.min.js')
+    //script(src='/init.js')
+    script(src='/source.js')
+    //link(rel='stylesheet', href='stylesheets/skel.css')
+    link(rel='stylesheet', href='stylesheets/style.css')
+    //link(rel='stylesheet', href='stylesheets/style-xlarge.css')
+    //link(rel='stylesheet', href='stylesheets/card.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    //script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    link(rel='stylesheet', href='https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+      
+  body
+    // Header
+    header#header
+      h1
+      form.home(action='/customer-menu', method='post')
+        input(type='submit', value='Menu')
+    // Main
+    section#main
+      .container-fluid.w3-container
+        br
+        if(apartment_listings)
+          each apt in apartment_listings
+            .column
+              .w3-card-4(style='width:100%;margin-left:.5em')
+                header.w3-container.w3-light-grey
+                  p
+                  center
+                    i.icon.big.rounded.color1.fas.fa-home
+                    p
+                    h4 Apartment Name: #{apt.apartmentName}
+                    h4 Location: #{apt.apartmentAddress}
+                    h4 Rent: $#{apt.expectedRent}
+                  br
+                  .w3-container.w3-center
+                    button.btn.btn-info.btn-lg(type='button', data-toggle='modal', data-target='#myModal', data-aptname=apt.apartmentName, data-aptloc=apt.apartmentAddress,data-bedrooms=apt.noOfBedrooms,data-baths=apt.noOfBaths,data-rent=apt.expectedRent,data-avafrom=apt.availableFrom,data-avatill=apt.availableTill,data-desc=apt.message,data-meal=apt.mealPreference,data-pets=apt.petFriendly,data-contact=apt.contactName,data-email=apt.emailId,data-number=apt.phoneNumber,  class="open-AddBookDialog") View Details
+                    br
+                    br
+                    button.btn.btn-info.btn-lg(type='button', data-id3=apt._id, data-toggle='modal', data-target='#deleteModal3', class="open-DeleteDialog3") Delete
+                  br
+                  #myModal.modal.fade(role='dialog')
+                    .modal-dialog
+                      // Modal content
+                      .modal-content
+                        .modal-header
+                          button.close(type='button', data-dismiss='modal') ×
+                          h4.modal-title Apartment Details
+                        .modal-body
+                          span Apartment Name: 
+                          input#aptname(type='text', name='aptname', value='')
+                          p
+                          span Location: 
+                          input#aptloc(type='text', name='aptloc', value='')
+                          p
+                          span Number of bedrooms: 
+                          input#bedrooms(type='text', name='bedrooms', value='')
+                          p
+                          span Number of baths: 
+                          input#baths(type='text', name='baths', value='')
+                          p
+                          span Rent: $
+                          input#rent(type='text', name='rent', value='')
+                          p
+                          span Available From: 
+                          input#avafrom(type='text', name='avafrom', value='')
+                          p
+                          span Available Till: 
+                          input#avatill(type='text', name='avatill', value='')
+                          p
+                          span Description: 
+                          textarea#desc(type='text', name='desc', value='')
+                          p
+                          span Meal Preferences: 
+                          input#meal(type='text', name='meal', value='')
+                          p
+                          span Pet Friendly: 
+                          input#pets(type='text', name='pets', value='')
+                          p
+                          span Contact Name: 
+                          input#contact(type='text', name='contact', value='')
+                          p
+                          span Email ID: 
+                          input#email(type='text', name='email', value='')
+                          p
+                          span Contact Number: 
+                          input#number(type='text', name='number', value='')
+                        .modal-footer
+                          button.btn.btn-default(type='button', data-dismiss='modal') Close
+                          br
+                          br
+                  #deleteModal3.modal.fade(role='dialog')
+                    .modal-dialog
+                      // Modal content
+                      .modal-content
+                        .modal-header
+                          button.close(type='button', data-dismiss='modal') ×
+                          h4.modal-title Delete Listing
+                        .modal-body
+                          span Confirm that you want to delete this listing. 
+                          p
+                        .modal-footer
+                          form(action='/admin_delete_listing', method='post')
+                            input(type='submit', value='Delete')
+                            input#delete3(type='hidden',name='delete3', value='')
+        if(roommate_listings)
+          each apt in roommate_listings
+            .column
+              .w3-card-4(style='width:100%;margin-left:.5em')
+                header.w3-container.w3-light-grey
+                  p
+                  center
+                    i.icon.big.rounded.color9.fas.fa-users
+                    p
+                    h4 Apartment Name: #{apt.apartmentName}
+                    h4 Location: #{apt.apartmentAddress}
+                    h4 Rent: $#{apt.expectedRent}
+                  br
+                  .w3-container.w3-center
+                    button.btn.btn-info.btn-lg(type='button', data-toggle='modal', data-target='#myModal', data-aptname=apt.apartmentName, data-aptloc=apt.apartmentAddress,data-bedrooms=apt.noOfBedrooms,data-roommates=apt.noOfRoommates,data-baths=apt.noOfBaths,data-rent=apt.expectedRent,data-avafrom=apt.availableFrom,data-avatill=apt.availableTill,data-available=apt.availability,data-desc=apt.message,data-meal=apt.mealPreference,data-pets=apt.petFriendly,data-contact=apt.contactName,data-email=apt.emailId,data-number=apt.phoneNumber,  class="open-AddBookDialog") View Details
+                    br
+                    br
+                    button.btn.btn-info.btn-lg(type='button', data-id4=apt._id, data-toggle='modal', data-target='#deleteModal4', class="open-DeleteDialog4") Delete
+                  br
+                  #myModal.modal.fade(role='dialog')
+                    .modal-dialog
+                      // Modal content
+                      .modal-content
+                        .modal-header
+                          button.close(type='button', data-dismiss='modal') ×
+                          h4.modal-title Apartment Details
+                        .modal-body
+                          span Apartment Name: 
+                          input#aptname(type='text', name='aptname', value='')
+                          p
+                          span Location: 
+                          input#aptloc(type='text', name='aptloc', value='')
+                          p
+                          span Number of bedrooms: 
+                          input#bedrooms(type='text', name='bedrooms', value='')
+                          p
+                          span Number of roommates: 
+                          input#roommates(type='text', name='roommates', value='')
+                          p
+                          span Number of baths: 
+                          input#baths(type='text', name='baths', value='')
+                          p
+                          span Rent: $
+                          input#rent(type='text', name='rent', value='')
+                          p
+                          span Available From: 
+                          input#avafrom(type='text', name='avafrom', value='')
+                          p
+                          span Available Till: 
+                          input#avatill(type='text', name='avatill', value='')
+                          p
+                          span Availability: 
+                          input#available(type='text', name='available', value='')
+                          p
+                          span Description: 
+                          textarea#desc(type='text', name='desc', value='')
+                          p
+                          span Meal Preferences: 
+                          input#meal(type='text', name='meal', value='')
+                          p
+                          span Pet Friendly: 
+                          input#pets(type='text', name='pets', value='')
+                          p
+                          span Contact Name: 
+                          input#contact(type='text', name='contact', value='')
+                          p
+                          span Email ID: 
+                          input#email(type='text', name='email', value='')
+                          p
+                          span Contact Number: 
+                          input#number(type='text', name='number', value='')
+                        .modal-footer
+                          button.btn.btn-default(type='button', data-dismiss='modal') Close
+                          br
+                          br
+                  #deleteModal4.modal.fade(role='dialog')
+                    .modal-dialog
+                      // Modal content
+                      .modal-content
+                        .modal-header
+                          button.close(type='button', data-dismiss='modal') ×
+                          h4.modal-title Delete Listing
+                        .modal-body
+                          span Confirm that you want to delete this listing.
+                          p
+                        .modal-footer
+                          form(action='/admin_delete_listing', method='post')
+                            input(type='submit', value='Delete')
+                            input#delete4(type='hidden',name='delete4', value='')
+    // Footer
+    footer#footer
+      .container
+        .row
+          .8u(class='12u$(medium)')
+            ul.copyright
+              li © Team Heisenbugs. All rights reserved.

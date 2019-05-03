@@ -1,0 +1,157 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title HideIn - Menu
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
+    //meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    //script(src='/jquery.min.js')
+    //script(src='/skel.min.js')
+    //script(src='/skel-layers.min.js')
+    //script(src='/init.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    link(rel='stylesheet', href='stylesheets/skel.css')
+    link(rel='stylesheet', href='stylesheets/style.css')
+    //link(rel='stylesheet', href='stylesheets/style-xlarge.css')
+    link(rel='stylesheet', href='https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    script(type='text/javascript').
+      var check_pwd = function() {
+      if (document.getElementById('confirm_new_password').value ==
+      document.getElementById('new_password').value) {
+      document.getElementById('message_cnf_pwd').style.color = 'green';
+      document.getElementById('message_cnf_pwd').innerHTML = 'Password matching';
+      document.getElementById('confirm_change_pwd').disabled = false;
+      } else {
+      document.getElementById('message_cnf_pwd').style.color = 'red';
+      document.getElementById('message_cnf_pwd').innerHTML = 'Password not matching';
+      document.getElementById('confirm_change_pwd').disabled = true;
+      }
+      }
+      var check_cnf_pwd = function() {
+      if (document.getElementById('confirm_new_password').value ==
+      document.getElementById('new_password').value) {
+      document.getElementById('message_cnf_pwd').style.color = 'green';
+      document.getElementById('message_cnf_pwd').innerHTML = 'Password matching';
+      document.getElementById('confirm_change_pwd').disabled = false;
+      } else {
+      document.getElementById('message_cnf_pwd').style.color = 'red';
+      document.getElementById('message_cnf_pwd').innerHTML = 'Password not matching';
+      document.getElementById('confirm_change_pwd').disabled = true;
+      }
+      }
+  style.
+    .button {
+    background-color: #404449;
+    color: #ffffff;
+    border: none;
+    padding: 5px 5px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+    }
+    
+    @media screen and (max-width:600px) {
+      .container, #header, .container-fluid, a, .big, .input, .modal, .special, .home, .section, .box{
+      float :none;
+      width :100%;
+      }
+  body
+    // Header
+    header#header
+      h1
+       form.home(action='/customer-menu', method='post')
+        input(type='submit', value='Menu', class='button')
+      nav#nav
+        ul
+          li
+            .w3-container.w3-center
+            if(admin)
+              li
+                form(action='/deleteListing', method='post')
+                  input(type='submit', value='Delete Listing', class='special button')
+              li
+                form(action='/dataAnalytics', method='post')
+                  input(type='submit', value='Data Visualization', class='special button')
+            else
+              li
+                form(action='/editListing', method='post')
+                  input(type='submit', value='Delete Listing', class='special button')
+              li
+                a.button.special(data-toggle='modal', data-target='#myModal') Reset Password
+            #myModal.modal.fade(role='dialog')
+              .modal-dialog
+                // Modal content
+                .modal-content
+                  .modal-header(style='height: 80px')
+                    center
+                      p(style='height: 80px') Change Password
+                  .modal-body
+                    form.form-group1(action='confirm-change-password', method='post')
+                      div#textbox1(style='height: 80px')
+                        input(name='currentPassword', type='password', placeholder='Current Password', required='')
+                      //br
+                      div#textbox1(style='height: 80px')
+                        input#new_password(name='newPassword', type='password', placeholder='New Password', onkeyup='check_pwd();', required='')
+                      //br
+                      div#textbox1(style='height: 80px')
+                        input#confirm_new_password(name='confirmPassword', type='password', placeholder='Confirm Password', onkeyup='check_cnf_pwd();', required='')
+                        span#message_cnf_pwd
+                      //br
+                      center
+                        div(style='height: 80px')
+                          input#confirm_change_pwd(type='submit', value='Change Password', disabled='')
+                    center
+                      button.btn.btn-default(type='button', data-dismiss='modal') Close
+          li
+            a.button.special(href='logout') Log Out
+    section#one.wrapper.style1.special
+      .container-fluid
+        header.major
+          h2 WELCOME TO HIDE IN !
+          if(message)
+          h4 #{message}
+        .row(class='150%')
+          .4u(class='12u$(medium)')
+            section.box
+              i.icon.big.rounded.color1.fas.fa-home
+              h3 APARTMENT LISTING
+              //p Search for apartments based on location
+              br
+              .class
+                ul.actions
+                  li
+                    form#apartmentListings(method='post', action='apartment_listings')
+                      input.special.big(value='View Listing', type='submit', onclick='submit_find_apartment_listings();')
+          .4u(class='12u$(medium)')
+            section.box
+              i.icon.big.rounded.color9.fas.fa-users
+              h3 ROOMMATE LISTING
+              //p Search for roommates based on location
+              br
+              .class
+                ul.actions
+                  li
+                    form#roommateListings(method='post', action='roommate_listings')
+                      input.special.big(value='View Listing', type='submit', onclick='submit_find_roommate_listings();')
+          .4u(class='12u$(medium)')
+            section.box
+              i.icon.big.rounded.color6.far.fa-edit
+              h3 POST ADVERTISEMENT
+              //p Post an advertisement
+              br
+              .class
+                ul.actions
+                  li
+                    form#postingAdvertisement(method='post', action='posting_advertisement')
+                      input.special.big(value='Post An Ad', type='submit', onclick='submit_posting_advertisement();')
+    // Footer
+    footer#footer
+      .container
+        .row
+          .8u(class='12u$(medium)')
+            ul.copyright
+              li © Team Heisenbugs. All rights reserved.
+
+

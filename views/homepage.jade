@@ -1,0 +1,112 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title HideIn
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    script(src='/jquery.min.js')
+    script(src='/skel.min.js')
+    script(src='/skel-layers.min.js')
+    script(src='/init.js')
+    link(rel='stylesheet', href='stylesheets/skel.css')
+    link(rel='stylesheet', href='stylesheets/style.css')
+    link(rel='stylesheet', href='stylesheets/style-xlarge.css')
+  body.landing
+    // Header
+    header#header
+      h1
+        a(href='/') HideIn
+      nav#nav
+        ul
+          // <li><a href="/">Home</a></li>
+          li
+            a.button.special(href='login') Login
+          li
+            a.button.special(href='signup') Sign Up
+    // Banner
+    section#banner
+      h2 HideIn
+      p End of your quest for your nest
+      ul.actions
+        li
+          a.button.big(href='#one') Link to something, Rajan
+    // One
+    section#one.wrapper.style1.special
+      .container
+        header.major
+          h2 About Us
+          p
+            | Looking for an apartment,room,roommate or a sublet?
+            | We have got you sorted!
+            br
+            | HideIn is a one stop solution for your quest for the nest.
+            br
+            | Searching for an appropriate abode is quite treacherous task.
+            br
+            | We thought there has to be a better way to do it,so we built it.
+    // Two
+    section#two.wrapper.style2.special
+      .container
+        header.major
+          div Meet the creators
+          h2 The Heisenbugs
+        section.profiles
+          .row
+            section.3u.profile(class='6u(medium) 12u$(xsmall)')
+              img(src='images/profile_placeholder.gif', alt='')
+              h4 Karan Thakkar
+              p The thinker
+            section.3u.profile(class='6u$(medium) 12u$(xsmall)')
+              img(src='images/profile_placeholder.gif', alt='')
+              h4 Nitish Potdar
+              p The lone doer
+            section.3u.profile(class='6u(medium) 12u$(xsmall)')
+              img(src='images/Unknown-2.jpeg', alt='')
+              h4 Rajan Mishra
+              p The curious one
+            section.profile(class='3u$ 6u$(medium) 12u$(xsmall)')
+              img(src='images/Unknown.jpeg', alt='')
+              h4 Surabhi Sonkhaskar
+              p The ridonculous one
+        footer
+    // Three
+    section#three.wrapper.style3.special
+      .container
+        header.major
+          h2 Contact Us
+      .container(class='50%')
+        form(action='#', method='post')
+          .row.uniform
+            .6u(class='12u$(small)')
+              input#name(name='name', value='', placeholder='Name', type='text')
+            .6u(class='12u$(small)')
+              input#email(name='email', value='', placeholder='Email', type='email')
+            .6u(class='12u$(big)')
+              textarea#message(name='message', placeholder='Message', rows='6')
+            .12u$'
+              ul.actions
+                li
+                  input.special.big(value='Send Message', type='submit')
+    // Footer
+    footer#footer
+      .container
+        .row
+          .8u(class='12u$(medium)')
+            ul.copyright
+              li © Team Heisenbugs. All rights reserved.
+          .4u$ .12u$(medium)'
+            ul.icons
+              li
+                a.icon.rounded.fa-facebook
+                  span.label Facebook
+              li
+                a.icon.rounded.fa-twitter
+                  span.label Twitter
+              li
+                a.icon.rounded.fa-google-plus
+                  span.label Google+
+              li
+                a.icon.rounded.fa-linkedin
+                  span.label LinkedIn

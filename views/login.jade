@@ -1,0 +1,53 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title HideIn - Login page
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(src='/jquery.min.js')
+    script(src='/skel.min.js')
+    script(src='/skel-layers.min.js')
+    script(src='/init.js')
+    link(rel='stylesheet', href='stylesheets/skel.css')
+    link(rel='stylesheet', href='stylesheets/style.css')
+    link(rel='stylesheet', href='stylesheets/style-xlarge.css')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+  body.landing
+    // Header
+    header#header
+      h1
+        a(href='/') HideIn
+      nav#nav
+        ul
+          li
+            a.button.special(href='/') Home
+          li
+            a.button.special(href='signup') Sign Up
+    // Banner
+    section#bannerlogin
+      h2 Login
+      center
+        form(action='customer-menu', method='post')
+          .form-group
+            label#textbox Username
+            input(name='username', type='text', placeholder='Username', required='')
+            br
+          .form-group
+            label#textbox Password
+            input(name='password', type='password', placeholder='Password', required='')
+            br
+          .form-group
+            input(type='submit', value='Submit')
+           if(message)
+           h4 #{message}
+    // Footer
+    footer#footer
+      .container
+        .row
+          .8u(class='12u$(medium)')
+            ul.copyright
+              li © Team Heisenbugs. All rights reserved.

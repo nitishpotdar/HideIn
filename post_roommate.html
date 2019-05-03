@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>HideIn - Post Roommate Listing</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/init.js"></script>
+<link rel="stylesheet" href="stylesheets/style.css" />
+<link rel="stylesheet" href="stylesheets/style-xlarge.css" />
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /> -->
+<link rel="stylesheet"
+	href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Raleway"
+	rel="stylesheet">
+<link rel="stylesheet" href="stylesheets/style.css" />
+<style>
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f1f1f1;
+}
+
+#regForm {
+	background-color: #ffffff;
+	margin: 100px auto;
+	font-family: Raleway;
+	padding: 40px;
+	width: 70%;
+	min-width: 300px;
+}
+
+h1 {
+	text-align: center;
+}
+
+input {
+	padding: 10px;
+	width: 100%;
+	font-size: 17px;
+	font-family: Raleway;
+	border: 1px solid #aaaaaa;
+}
+
+input.invalid {
+	background-color: #ffdddd;
+}
+
+.tab {
+	display: none;
+}
+
+button {
+	background-color: #404449;
+	color: #ffffff;
+	border: none;
+	padding: 10px 20px;
+	font-size: 17px;
+	font-family: Raleway;
+	cursor: pointer;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
+#prevBtn {
+	background-color: #bbbbbb;
+}
+
+.step {
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbbbbb;
+	border: none;
+	border-radius: 50%;
+	display: inline-block;
+	opacity: 0.5;
+}
+
+.step.active {
+	opacity: 1;
+}
+
+.step.finish {
+	background-color: #404449;
+}
+
+.button {
+	background-color: #404449;
+	color: #ffffff;
+	border: none;
+	padding: 5px 5px;
+	font-size: 17px;
+	font-family: Raleway;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+	<!-- Header -->
+	<header id="header">
+		<h1>
+			<form action="/customer-menu" method="post" class="home">
+				<input type="submit" class="button" value="Menu" />
+			</form>
+		</h1>
+	</header>
+
+
+	<form action="post_roommate_ad" method="post" id="regForm">
+		<h1>ADD ROOMMATE LISTING</h1>
+		<div class="tab">
+			<h3>Apartment Details</h3>
+			<p>
+			<div class="4u 12u$(4)">
+				<input type="text" name="apartmentName" id="apartmentName" value=""
+					placeholder="Apartment Name" />
+			</div>
+			</p>
+			<p>
+			<div class="4u 12u$(4)">
+				<input type="text" name="apartmentAddress" id="apartmentAddress"
+					value="" placeholder="Apartment Address" />
+			</div>
+			</p>
+			<p>
+			<div class="4u 12u$(4)">
+				<div class="select-wrapper">
+					<select name="noOfBedrooms" id="noOfBedrooms">
+						<option value="">- No of bedrooms -</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</div>
+			</div>
+			</p>
+			<p>
+			<div class="4u 12u$(4)">
+				<div class="select-wrapper">
+					<select name="noOfBaths" id="noOfBaths">
+						<option value="">- No of baths -</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</div>
+			</div>
+			</p>
+			<p>
+			<div class="4u 12u$(4)">
+				<div class="select-wrapper">
+					<select name="noOfRoommates" id="noOfRoommates">
+						<option value="">- No of roommates -</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+			</div>
+			</p>
+		</div>
+		<div class="tab">
+			<h3>Additional Information:</h3>
+			<p>
+			<div class="4u 12u$(4)">
+				<input type="number" name="expectedRent" id="expectedRent" value=""
+					placeholder="Expected Rent" />
+			</div>
+			</p>
+			<p>
+			<div class="4u 12u$(4)">
+				<input type="date" name="availableFrom" id="availableFrom" value=""
+					placeholder="Available From in dd/mm/yyyy format" />
+			</div>
+			</p>
+			<p>
+			<div class="4u 12u$(4)">
+				<input type="date" name="availableTill" id="availableTill" value=""
+					placeholder="Available Till in dd/mm/yyyy format" />
+			</div>
+			</p>
+			<p>
+			<div class="4u 12u$(4)">
+				<div class="select-wrapper">
+					<select name="availability" id="availability">
+						<option value="">- Availability -</option>
+						<option value="Temporary">Temporary</option>
+						<option value="Permanent">Permanent</option>
+					</select>
+				</div>
+			</div>
+			</p>
+			<p>
+			<div class="12u$">
+				<textarea name="message" id="message"
+					placeholder="Other details, if any" rows="6"></textarea>
+			</div>
+			</p>
+			<p>
+			<div class="4u 12u$(4)">
+				<div class="select-wrapper">
+					<select name="mealPreference" id="mealPreference">
+						<option value="">- Meals Preferences -</option>
+						<option value="Vegetarian">Vegetarian</option>
+						<option value="Non-vegetarian">Non-vegetarian</option>
+					</select>
+				</div>
+			</div>
+			</p>
+			<p>
+			<div class="4u 12u$(4)">
+				<div class="select-wrapper">
+					<select name="petFriendly" id="petFriendly">
+						<option value="">- Pet Friendly -</option>
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>
+					</select>
+				</div>
+			</div>
+			</p>
+		</div>
+		<div class="tab">
+			<h3>Contact Details:</h3>
+			<p>
+			<div class="4u 12u$(4)">
+				<input type="text" name="contactName" id="contactName" value=""
+					placeholder="Contact Name" />
+			</div>
+			</p>
+			<p>
+			<div class="4u 12u$(4)">
+				<input type="email" name="emailId" id="emailId" value=""
+					pattern="^.+@.+\..{2,4}$" placeholder="xxx@xxx.xx" />
+			</div>
+			</p>
+			<p>
+			<div class="4u 12u$(4)">
+				<input type="text" name="phoneNumber" id="phoneNumber" value=""
+					pattern="^\d{3}-\d{3}-\d{4}$" placeholder="999-999-9999" />
+			</div>
+			</p>
+		</div>
+
+		<div style="overflow: auto;">
+			<div style="float: right;">
+				<button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+				<button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+			</div>
+		</div>
+		<div style="text-align: center; margin-top: 40px;">
+			<span class="step"></span> <span class="step"></span> <span
+				class="step"></span>
+		</div>
+	</form>
+
+	<script>
+		var currentTab = 0;
+		showTab(currentTab);
+
+		function showTab(n) {
+			var x = document.getElementsByClassName("tab");
+			x[n].style.display = "block";
+			if (n == 0) {
+				document.getElementById("prevBtn").style.display = "none";
+			} else {
+				document.getElementById("prevBtn").style.display = "inline";
+			}
+			if (n == (x.length - 1)) {
+				document.getElementById("nextBtn").innerHTML = "Submit";
+			} else {
+				document.getElementById("nextBtn").innerHTML = "Next";
+			}
+			fixStepIndicator(n)
+		}
+
+		function nextPrev(n) {
+			var x = document.getElementsByClassName("tab");
+			if (n == 1 && !validateForm())
+				return false;
+			x[currentTab].style.display = "none";
+			currentTab = currentTab + n;
+			if (currentTab >= x.length) {
+				document.getElementById("regForm").submit();
+				return false;
+			}
+			showTab(currentTab);
+		}
+
+		function validateForm() {
+			var x, y, i, valid = true;
+			x = document.getElementsByClassName("tab");
+			y = x[currentTab].getElementsByTagName("input");
+			for (i = 0; i < y.length; i++) {
+				if (y[i].value == "") {
+					y[i].className += " invalid";
+					valid = false;
+				}
+			}
+			if (valid) {
+				document.getElementsByClassName("step")[currentTab].className += " finish";
+			}
+			return valid;
+		}
+
+		function fixStepIndicator(n) {
+			var i, x = document.getElementsByClassName("step");
+			for (i = 0; i < x.length; i++) {
+				x[i].className = x[i].className.replace(" active", "");
+			}
+			x[n].className += " active";
+		}
+	</script>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="container">
+
+			<div class="row">
+				<div class="8u 12u$(medium)">
+					<ul class="copyright">
+						<li>&copy; Team Heisenbugs. All rights reserved.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html>
+

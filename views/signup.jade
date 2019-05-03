@@ -1,0 +1,109 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title HideIn - Signup Page
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(src='/jquery.min.js')
+    script(src='/skel.min.js')
+    script(src='/skel-layers.min.js')
+    script(src='/init.js')
+    script(src='/validations.js')
+    link(rel='stylesheet', href='stylesheets/skel.css')
+    link(rel='stylesheet', href='stylesheets/style.css')
+    link(rel='stylesheet', href='stylesheets/style-xlarge.css')
+    link(rel='stylesheet', href='https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    title HideIn - Sign Up
+    script(type='text/javascript').
+      var check_pwd = function() {
+      if (document.getElementById('password').value ==
+      document.getElementById('confirm_password').value) {
+      document.getElementById('message').style.color = 'green';
+      document.getElementById('message').innerHTML = 'Password matching';
+      document.getElementById('submit_button').disabled = false;
+      } else {
+      document.getElementById('message').style.color = 'red';
+      document.getElementById('message').innerHTML = 'Password not matching';
+      document.getElementById('submit_button').disabled = true;
+      }
+      }
+      var check_cnf_pwd = function() {
+      if (document.getElementById('password').value ==
+      document.getElementById('confirm_password').value) {
+      document.getElementById('message').style.color = 'green';
+      document.getElementById('message').innerHTML = 'Password matching';
+      document.getElementById('submit_button').disabled = false;
+      } else {
+      document.getElementById('message').style.color = 'red';
+      document.getElementById('message').innerHTML = 'Password not matching';
+      document.getElementById('submit_button').disabled = true;
+      }
+      }
+  body.landing
+    // Header
+    header#header
+      h1
+        a(href='/') HideIn
+      nav#nav
+        ul
+          li
+            a.button.special(href='/') Home
+          li
+            a.button.special(href='login') Login
+    // Banner
+    section#bannersignup
+      h2 HideIn
+      center
+        form(action='signup', method='post')
+          .form-group
+            label#textbox First Name:
+            input(name='firstName', placeholder='First name', type='text', required='')
+            br
+          .form-group
+            label#textbox Last Name:
+            input(name='lastName', placeholder='Last name', type='text', required='')
+            br
+          .form-group
+            label#textbox Email ID:
+            input(name='emailId', placeholder='xxxxx@xxxxx.xxx', pattern = "^.+@.+\\..{2,4}$", type='email', required='')
+            br
+          .form-group
+            label#textbox Password:
+            input#password(type='password', name='password', onkeyup='check_pwd();', required='')
+            br
+          .form-group
+            label#textbox Confirm Password:
+            input#confirm_password(type='password', name='confirm_password', onkeyup='check_cnf_pwd();', required='')
+            span#message
+            br
+          .form-group
+            label#textbox Phone Number:
+            input(name='phoneNumber', type='tel', placeholder='999-999-9999', pattern = "^\\d{3}-\\d{3}-\\d{4}$", required='')
+            br
+          .form-group
+            input#submit_button(type='submit', value='Submit', disabled='')
+    // Footer
+    footer#footer
+      .container
+        .row
+          .8u(class='12u$(medium)')
+            ul.copyright
+              li © Team Heisenbugs. All rights reserved.
+          .class='4u$ 12u$(medium)'
+            ul.icons
+              li
+                a.icon.rounded.fa-facebook
+                  span.label Facebook
+              li
+                a.icon.rounded.fa-twitter
+                  span.label Twitter
+              li
+                a.icon.rounded.fa-google-plus
+                  span.label Google+
+              li
+                a.icon.rounded.fa-linkedin
+                  span.label LinkedIn
